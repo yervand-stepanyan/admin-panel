@@ -25,13 +25,14 @@ export const useStyles = makeStyles((theme) => ({
   menuIcon: {
     color: theme.color.whiteColor,
   },
-  root: {
-    width: '100%',
-    maxWidth: 360,
+  list: {
     color: theme.color.whiteColor,
   },
   listSubHeader: {
     color: theme.color.listSubHeaderColor,
+  },
+  icon: {
+    color: theme.color.whiteColor,
   },
   nested: {
     paddingLeft: theme.spacing(4),

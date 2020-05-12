@@ -8,7 +8,9 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
+import ListIcon from '@material-ui/icons/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -19,10 +21,10 @@ import { useStyles } from './Sidebar.style';
 
 function Sidebar() {
   const classes = useStyles();
-  const [openList, setOpenList] = useState(false);
+  const [openProjects, setOpenProjects] = useState(false);
 
-  const handleListClick = () => {
-    setOpenList(!openList);
+  const handleProjectsClick = () => {
+    setOpenProjects(!openProjects);
   };
 
   return (
@@ -60,13 +62,16 @@ function Sidebar() {
                 Main
               </ListSubheader>
             }
-            className={classes.root}
+            className={classes.list}
           >
-            <ListItem button>
-              <ListItemText onClick={handleListClick} primary="Projects" />
-              {openList ? <ExpandLess /> : <ExpandMore />}
+            <ListItem button onClick={handleProjectsClick}>
+              <ListItemIcon className={classes.icon}>
+                <ListIcon />
+              </ListItemIcon>
+              <ListItemText primary="Projects" />
+              {openProjects ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            <Collapse in={openList} timeout="auto" unmountOnExit>
+            <Collapse in={openProjects} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {PROJECTS.map((project) => (
                   <ListItem
