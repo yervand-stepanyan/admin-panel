@@ -1,10 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    backgroundColor: 'white',
-    // color: `${theme.customTypography.fontColor.base}`,
-    // fontFamily: `${theme.customTypography.fontFamily.base}`,
+    backgroundColor: theme.color.whiteColor,
     minHeight: '100vh',
   },
-});
+}));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -11,7 +11,6 @@ import { useStyles } from './Sidebar.style';
 
 function Sidebar() {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
 
   return (
     <div>
@@ -21,8 +20,7 @@ function Sidebar() {
           paper: classes.drawerPaper,
         }}
         className={classes.drawer}
-        open={open}
-        variant="temporary"
+        variant="permanent"
       >
         <div className={classes.logoAndIconWrapper}>
           <div className={classes.logoWrapper}>
