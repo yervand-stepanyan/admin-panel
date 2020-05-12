@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
+import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 import { useStyles } from './Main.style';
 
@@ -11,6 +12,7 @@ function Main() {
     <div className={classes.mainContainer}>
       <Router>
         <Sidebar />
+        <Header />
       </Router>
     </div>
   );
