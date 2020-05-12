@@ -1,10 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
-  logoAndIconWrapper: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
   drawer: {
     width: theme.drawer.drawerWidth,
   },
@@ -13,6 +9,10 @@ export const useStyles = makeStyles((theme) => ({
     boxSizing: 'border-box',
     padding: `0 ${theme.customSpacing.base}`,
     width: theme.drawer.drawerWidth,
+  },
+  logoAndIconWrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   logoWrapper: {
     display: 'flex',
@@ -24,5 +24,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuIcon: {
     color: theme.color.whiteColor,
+  },
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    color: theme.color.whiteColor,
+  },
+  listSubHeader: {
+    color: theme.color.listSubHeaderColor,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
 }));
