@@ -34,6 +34,7 @@ const theme = createMuiTheme({
     whiteColor,
   },
   customSpacing: {
+    small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
     xxxLarge: `${MAIN_SPACING_VALUE * 7}px`,
   },
