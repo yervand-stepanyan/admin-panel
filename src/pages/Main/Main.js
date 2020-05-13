@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { addCollection, clearCollections } from '../../store/actions';
+import { addCollections, clearCollections } from '../../store/actions';
 import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
 import Content from '../../components/Content';
@@ -13,6 +13,7 @@ import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
+  const [loadingCollections, setLoadingCollections] = useState(true);
   const [openProjects, setOpenProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState('');
   const [stateCollections, dispatchCollections] = useReducer(
@@ -24,7 +25,7 @@ function Main() {
     setOpenProjects(!openProjects);
   };
 
-  const handleSelectProject = (projectName) => {
+  const handleSelectProject = async (projectName) => {
     setSelectedProject(projectName);
 
     if (selectedProject !== projectName) {
@@ -33,24 +34,33 @@ function Main() {
       return;
     }
 
-    const { collections, routeAPI } = PROJECTS.find(
-      (project) => project.name === projectName
-    );
+    try {
+      setLoadingCollections(true);
 
-    collections.forEach(async ({ name, url }) => {
-      try {
-        const response = await API.get(routeAPI, url);
+      const { collections, routeAPI } = PROJECTS.find(
+        (project) => project.name === projectName
+      );
+      const responseArray = await Promise.all(
+        collections.map(({ url }) => API.get(routeAPI, url))
+      );
+      const mappedCollections = await responseArray.map((array, index) => ({
+        name: collections[index].name,
+        collection: array,
+      }));
 
-        dispatchCollections(addCollection({ name, collection: response }));
-      } catch (e) {
-        // console.log(e);
-      }
-    });
+      dispatchCollections(addCollections(mappedCollections));
+    } catch (e) {
+      setLoadingCollections(false);
+    } finally {
+      setLoadingCollections(false);
+    }
   };
 
   return (
     <div className={classes.mainContainer}>
-      <StoreContext.Provider value={{ stateCollections, dispatchCollections }}>
+      <StoreContext.Provider
+        value={{ stateCollections, dispatchCollections, loadingCollections }}
+      >
         <Router>
           <Sidebar
             handleProjectsClick={handleProjectsClick}
