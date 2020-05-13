@@ -13,7 +13,7 @@ function CollectionList() {
     <div className={classes.collectionListContainer}>
       {stateCollections.map(({ name, collection }, index) => (
         <CollectionCard
-          collection={collection}
+          collectionLength={collection.length}
           collectionName={name}
           color={
             CARD_COLORS[index]
