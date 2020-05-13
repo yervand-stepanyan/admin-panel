@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.color.whiteColor,
-    color: 'black',
     marginLeft: theme.drawer.drawerWidth,
     width: `calc(100% - ${theme.drawer.drawerWidth}px)`,
   },
@@ -28,7 +27,6 @@ export const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
   },
   inputRoot: {
-    color: 'inherit',
     width: '100%',
   },
   button: {

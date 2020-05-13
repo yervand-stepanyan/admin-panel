@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Collapse from '@material-ui/core/Collapse';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,17 +16,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import logo from '../../assets/images/logoCustom.png';
-import { PROJECTS } from '../../globals/constants';
+import { PROJECTS, PROJECTS_LABEL } from '../../globals/constants';
 import ROUTES from '../../routes';
 import { useStyles } from './Sidebar.style';
 
-function Sidebar() {
+function Sidebar({ handleProjectsClick, handleSelectProject, openProjects }) {
   const classes = useStyles();
-  const [openProjects, setOpenProjects] = useState(false);
-
-  const handleProjectsClick = () => {
-    setOpenProjects(!openProjects);
-  };
 
   return (
     <div>
@@ -68,19 +64,25 @@ function Sidebar() {
               <ListItemIcon className={classes.icon}>
                 <ListIcon />
               </ListItemIcon>
-              <ListItemText primary="Projects" />
+              <ListItemText primary={PROJECTS_LABEL} />
               {openProjects ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={openProjects} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {PROJECTS.map((project) => (
-                  <ListItem
-                    button
-                    className={classes.nested}
+                  <Link
+                    className={classes.link}
                     key={project.name}
+                    to={ROUTES.dashboard}
                   >
-                    <ListItemText primary={project.name} />
-                  </ListItem>
+                    <ListItem
+                      button
+                      className={classes.nested}
+                      onClick={() => handleSelectProject(project.name)}
+                    >
+                      <ListItemText primary={project.name} />
+                    </ListItem>
+                  </Link>
                 ))}
               </List>
             </Collapse>
@@ -90,5 +92,11 @@ function Sidebar() {
     </div>
   );
 }
+
+Sidebar.propTypes = {
+  handleProjectsClick: PropTypes.func.isRequired,
+  handleSelectProject: PropTypes.func.isRequired,
+  openProjects: PropTypes.bool.isRequired,
+};
 
 export default Sidebar;

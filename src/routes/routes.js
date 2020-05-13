@@ -1,4 +1,5 @@
 const ROUTES = {
+  dashboard: '/dashboard',
   home: '/',
 };
 
