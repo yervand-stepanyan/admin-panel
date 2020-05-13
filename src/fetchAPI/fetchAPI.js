@@ -1,4 +1,4 @@
-async function request({ url, method, body, id }) {
+async function request({ routeAPI, url, method, body, id }) {
   const fetchData = body
     ? {
         body: JSON.stringify(body) || '',
@@ -12,7 +12,7 @@ async function request({ url, method, body, id }) {
       };
 
   const response = await fetch(
-    `${process.env.REACT_APP_SURVEYS_API}/api/${url}${id ? `/${id}` : ''}`,
+    `${routeAPI}/api/${url}${id ? `/${id}` : ''}`,
     fetchData
   );
 
@@ -20,9 +20,11 @@ async function request({ url, method, body, id }) {
 }
 
 const API = {
-  get: (url) => request({ url, method: 'GET' }),
-  post: (url, body) => request({ url, method: 'POST', body }),
-  delete: (url, id) => request({ url, method: 'DELETE', id }),
+  get: (routeAPI, url) => request({ routeAPI, url, method: 'GET' }),
+  post: (routeAPI, url, body) =>
+    request({ routeAPI, url, method: 'POST', body }),
+  delete: (routeAPI, url, id) =>
+    request({ routeAPI, url, method: 'DELETE', id }),
 };
 
 export default API;

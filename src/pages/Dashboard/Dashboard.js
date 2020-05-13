@@ -1,21 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import CollectionList from '../../components/CollectionList';
 import { useStyles } from './Dashboard.style';
 
-function Dashboard({ selectedCollections }) {
+function Dashboard() {
   const classes = useStyles();
 
   return (
     <div className={classes.dashboardContainer}>
-      <CollectionList selectedCollections={selectedCollections} />
+      <CollectionList />
     </div>
   );
 }
-
-Dashboard.propTypes = {
-  selectedCollections: PropTypes.array.isRequired,
-};
 
 export default Dashboard;

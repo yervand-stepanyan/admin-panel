@@ -1,10 +1,29 @@
 export const CARD_COLORS = ['blue', 'red', 'yellow', 'green'];
 
 export const PROJECTS = [
-  { name: 'Create Survey', collections: ['surveys', 'survey-answers'] },
+  {
+    name: 'Create Survey',
+    collections: [
+      {
+        name: 'surveys',
+        url: 'surveys',
+      },
+      {
+        name: 'survey-answers',
+        url: 'survey-answers',
+      },
+    ],
+    routeAPI: process.env.REACT_APP_SURVEYS_API,
+  },
   {
     name: 'Learning English',
-    collections: ['users', 'levels', 'tests', 'texts', 'audios'],
+    collections: [
+      { name: 'users', url: 'auth' },
+      { name: 'tests', url: 'test' },
+      { name: 'texts', url: 'text' },
+      { name: 'audios', url: 'audio' },
+    ],
+    routeAPI: process.env.REACT_APP_LEARNING_ENGLISH_API,
   },
 ];
 

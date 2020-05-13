@@ -7,14 +7,15 @@ import Typography from '@material-ui/core/Typography';
 
 import { useStyles } from './CollectionCard.style';
 
-function CollectionCard({ collection, color }) {
+function CollectionCard({ collection, collectionName, color }) {
   const classes = useStyles();
 
   return (
     <div className={classes.collectionCardContainer}>
       <Card className={`${classes.card} ${classes[color]}`}>
         <CardContent>
-          <Typography variant="h5">{collection}</Typography>
+          <Typography variant="h5">{collection.length}</Typography>
+          <Typography variant="subtitle1">{collectionName}</Typography>
         </CardContent>
       </Card>
     </div>
@@ -22,7 +23,8 @@ function CollectionCard({ collection, color }) {
 }
 
 CollectionCard.propTypes = {
-  collection: PropTypes.string.isRequired,
+  collection: PropTypes.array.isRequired,
+  collectionName: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
 };
 
