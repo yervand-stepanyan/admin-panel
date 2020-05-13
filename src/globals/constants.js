@@ -1,4 +1,13 @@
+import logo from '../assets/images/logo.png';
+
 export const CARD_COLORS = ['blue', 'red', 'yellow', 'green'];
+
+export const IMAGE = {
+  logo: {
+    alt: 'logo',
+    src: logo,
+  },
+};
 
 export const PROJECTS = [
   {

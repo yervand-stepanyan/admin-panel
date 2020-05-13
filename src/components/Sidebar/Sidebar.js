@@ -15,8 +15,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import logo from '../../assets/images/logoCustom.png';
-import { PROJECTS, PROJECTS_LABEL } from '../../globals/constants';
+import { IMAGE, PROJECTS, PROJECTS_LABEL } from '../../globals/constants';
 import ROUTES from '../../routes';
 import { useStyles } from './Sidebar.style';
 
@@ -36,7 +35,11 @@ function Sidebar({ handleProjectsClick, handleSelectProject, openProjects }) {
         <div className={classes.logoAndIconWrapper}>
           <div className={classes.logoWrapper}>
             <Link to={ROUTES.home}>
-              <img alt="logo" className={classes.logo} src={logo} />
+              <img
+                alt={IMAGE.logo.alt}
+                className={classes.logo}
+                src={IMAGE.logo.src}
+              />
             </Link>
           </div>
           <div>
