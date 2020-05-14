@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Dashboard from '../../pages/Dashboard';
 import Home from '../../pages/Home';
@@ -17,6 +17,9 @@ function Content() {
         </Route>
         <Route path={ROUTES.dashboard}>
           <Dashboard />
+        </Route>
+        <Route path="*">
+          <Redirect to={ROUTES.home} />
         </Route>
       </Switch>
     </div>
