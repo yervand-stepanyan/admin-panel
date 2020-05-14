@@ -12,6 +12,7 @@ const listSubHeaderColor = '#7f7f7f';
 const headerButtonColor = '#7a7a7a';
 const scrollbarColor = '#a1a1a1';
 const scrollbarHoverColor = '#6d6d6d';
+const searchLiHover = '#f1f1f1';
 const sidebarColor = '#1B2133';
 const whiteColor = '#FFFFFF';
 
@@ -30,6 +31,7 @@ const theme = createMuiTheme({
     headerButtonColor,
     scrollbarColor,
     scrollbarHoverColor,
+    searchLiHover,
     sidebarColor,
     whiteColor,
   },

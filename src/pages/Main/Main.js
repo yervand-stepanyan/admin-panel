@@ -13,6 +13,7 @@ import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
+  const [filteredProjects, setFilteredProjects] = useState([]);
   const [loadingCollections, setLoadingCollections] = useState(true);
   const [openProjects, setOpenProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState('');
@@ -56,10 +57,29 @@ function Main() {
     }
   };
 
+  const handleSearch = (searchItem) => {
+    const foundProjects = PROJECTS.filter(({ name }) =>
+      name.toLowerCase().includes(searchItem.toLowerCase())
+    );
+
+    setFilteredProjects(foundProjects);
+  };
+
+  const handleFilteredClick = (projectName) => {
+    handleSelectProject(projectName);
+  };
+
   return (
     <div className={classes.mainContainer}>
       <StoreContext.Provider
-        value={{ stateCollections, dispatchCollections, loadingCollections }}
+        value={{
+          stateCollections,
+          dispatchCollections,
+          filteredProjects,
+          handleFilteredClick,
+          handleSearch,
+          loadingCollections,
+        }}
       >
         <Router>
           <Sidebar

@@ -11,6 +11,8 @@ export const IMAGE = {
   },
 };
 
+export const NO_ITEM_FOUND = 'No item found';
+
 export const PROJECTS = [
   {
     name: 'Create Survey',

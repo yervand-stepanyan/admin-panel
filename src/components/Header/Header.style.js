@@ -10,25 +10,6 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
-  search: {
-    display: 'flex',
-    marginRight: `${theme.customSpacing.base}`,
-    width: '100%',
-  },
-  searchInputWrapper: {
-    marginLeft: `${theme.customSpacing.base}`,
-    width: '100%',
-  },
-  searchIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: `${theme.color.headerButtonColor}`,
-    cursor: 'pointer',
-  },
-  inputRoot: {
-    width: '100%',
-  },
   button: {
     color: `${theme.color.headerButtonColor}`,
   },
