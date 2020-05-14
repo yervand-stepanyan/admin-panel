@@ -2,6 +2,8 @@ import logo from '../assets/images/logo.png';
 
 export const CARD_COLORS = ['blue', 'red', 'yellow', 'green'];
 
+export const HOME_LABEL = 'Choose a project to display!';
+
 export const IMAGE = {
   logo: {
     alt: 'logo',
