@@ -76,18 +76,18 @@ function Sidebar({
             </ListItem>
             <Collapse in={openProjects} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                {PROJECTS.map((project) => (
+                {PROJECTS.map(({ name }) => (
                   <Link
                     className={classes.link}
-                    key={project.name}
+                    key={name}
                     to={ROUTES.dashboard}
                   >
                     <ListItem
                       button
                       className={classes.nested}
-                      onClick={() => handleSelectProject(project.name)}
+                      onClick={() => handleSelectProject(name)}
                     >
-                      <ListItemText primary={project.name} />
+                      <ListItemText primary={name} />
                     </ListItem>
                   </Link>
                 ))}

@@ -8,12 +8,14 @@ const cardColorBlue = '#4285F4';
 const cardColorGreen = '#34A853';
 const cardColorRed = '#EA4335';
 const cardColorYellow = '#FBBC05';
+const listItemColor = '#FFFFFF';
 const listSubHeaderColor = '#7f7f7f';
 const headerButtonColor = '#7a7a7a';
 const scrollbarColor = '#a1a1a1';
 const scrollbarHoverColor = '#6d6d6d';
 const searchLiHover = '#f1f1f1';
 const sidebarColor = '#1B2133';
+const textColorBlack = '#000000';
 const whiteColor = '#FFFFFF';
 
 const theme = createMuiTheme({
@@ -27,12 +29,14 @@ const theme = createMuiTheme({
     cardColorRed,
     cardColorYellow,
     cardColorGreen,
+    listItemColor,
     listSubHeaderColor,
     headerButtonColor,
     scrollbarColor,
     scrollbarHoverColor,
     searchLiHover,
     sidebarColor,
+    textColorBlack,
     whiteColor,
   },
   customSpacing: {

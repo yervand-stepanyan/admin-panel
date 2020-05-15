@@ -23,22 +23,22 @@ export const useStyles = makeStyles((theme) => ({
     width: '100px',
   },
   menuIcon: {
-    color: theme.color.whiteColor,
+    color: theme.color.listItemColor,
   },
   list: {
-    color: theme.color.whiteColor,
+    color: theme.color.listItemColor,
   },
   listSubHeader: {
     color: theme.color.listSubHeaderColor,
   },
   icon: {
-    color: theme.color.whiteColor,
+    color: theme.color.listItemColor,
   },
   nested: {
     paddingLeft: theme.spacing(4),
   },
   link: {
-    color: theme.color.whiteColor,
+    color: theme.color.listItemColor,
     textDecoration: 'none',
   },
 }));

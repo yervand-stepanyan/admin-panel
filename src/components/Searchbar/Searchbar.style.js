@@ -29,7 +29,6 @@ export const useStyles = makeStyles((theme) => ({
     border: '0',
     borderRadius: '0 0 4px 4px',
     boxShadow: '0 4px 6px 0 rgba(32,33,36,0.28)',
-    color: 'black',
     position: 'absolute',
     width: '90%',
   },
@@ -61,7 +60,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: '0',
   },
   link: {
-    color: 'black',
+    color: theme.color.textColorBlack,
     textDecoration: 'none',
   },
   li: {
@@ -78,7 +77,6 @@ export const useStyles = makeStyles((theme) => ({
   clearIconShow: {
     display: 'flex',
     alignItems: 'center',
-    color: 'black',
   },
   clearIconHidden: {
     display: 'none',
