@@ -5,9 +5,13 @@ const MAIN_SPACING_VALUE = 14;
 
 const backgroundColor = '#E4EAF6';
 const cardColorBlue = '#4285F4';
+const cardColorBlueHover = '#274f92';
 const cardColorGreen = '#34A853';
+const cardColorGreenHover = '#1f6431';
 const cardColorRed = '#EA4335';
+const cardColorRedHover = '#8c281f';
 const cardColorYellow = '#FBBC05';
+const cardColorYellowHover = '#967003';
 const listItemColor = '#FFFFFF';
 const listSubHeaderColor = '#7f7f7f';
 const headerButtonColor = '#7a7a7a';
@@ -26,9 +30,13 @@ const theme = createMuiTheme({
   color: {
     backgroundColor,
     cardColorBlue,
-    cardColorRed,
-    cardColorYellow,
+    cardColorBlueHover,
     cardColorGreen,
+    cardColorGreenHover,
+    cardColorRed,
+    cardColorRedHover,
+    cardColorYellow,
+    cardColorYellowHover,
     listItemColor,
     listSubHeaderColor,
     headerButtonColor,

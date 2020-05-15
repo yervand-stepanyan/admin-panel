@@ -21,14 +21,26 @@ export const useStyles = makeStyles((theme) => ({
   },
   blue: {
     backgroundColor: theme.color.cardColorBlue,
-  },
-  red: {
-    backgroundColor: theme.color.cardColorRed,
-  },
-  yellow: {
-    backgroundColor: theme.color.cardColorYellow,
+    '&:hover': {
+      backgroundColor: theme.color.cardColorBlueHover,
+    },
   },
   green: {
     backgroundColor: theme.color.cardColorGreen,
+    '&:hover': {
+      backgroundColor: theme.color.cardColorGreenHover,
+    },
+  },
+  red: {
+    backgroundColor: theme.color.cardColorRed,
+    '&:hover': {
+      backgroundColor: theme.color.cardColorRedHover,
+    },
+  },
+  yellow: {
+    backgroundColor: theme.color.cardColorYellow,
+    '&:hover': {
+      backgroundColor: theme.color.cardColorYellowHover,
+    },
   },
 }));
