@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 import ClearIcon from '@material-ui/icons/Clear';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import Zoom from '@material-ui/core/Zoom';
 
-import { NO_ITEM_FOUND, SEARCH_PLACEHOLDER } from '../../globals/constants';
+import {
+  NO_ITEM_FOUND,
+  SEARCH_CLEAR_TOOLTIP,
+  SEARCH_PLACEHOLDER,
+} from '../../globals/constants';
 import removeSpaces from '../../helpers/removeSpaces';
 import ROUTES from '../../routes';
 import useOutsideAlerter from '../../helpers/outsideAlerter';
@@ -46,19 +52,25 @@ function Searchbar() {
     }
   };
 
-  const handleItemClick = (name) => {
+  const handleSelectItem = (name) => {
     handleFilteredClick(name);
 
     setShowFiltered(false);
+
+    setValue('');
+  };
+
+  const handleItemClick = (name) => {
+    handleSelectItem(name);
   };
 
   const handleItemEnterKey = (event, name) => {
     if (event.key === 'Enter') {
-      handleItemClick(name);
+      handleSelectItem(name);
     }
   };
 
-  const handleClearSearch = () => {
+  const handleClearSearchInput = () => {
     setValue('');
   };
 
@@ -108,11 +120,13 @@ function Searchbar() {
         </div>
       </div>
       <div className={value ? classes.clearIconShow : classes.clearIconHidden}>
-        <ClearIcon
-          className={classes.clearIcon}
-          fontSize="small"
-          onClick={handleClearSearch}
-        />
+        <Tooltip title={SEARCH_CLEAR_TOOLTIP} TransitionComponent={Zoom}>
+          <ClearIcon
+            className={classes.clearIcon}
+            fontSize="small"
+            onClick={handleClearSearchInput}
+          />
+        </Tooltip>
       </div>
     </div>
   );

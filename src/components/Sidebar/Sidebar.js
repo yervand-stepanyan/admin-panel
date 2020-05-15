@@ -19,7 +19,11 @@ import { IMAGE, PROJECTS, PROJECTS_LABEL } from '../../globals/constants';
 import ROUTES from '../../routes';
 import { useStyles } from './Sidebar.style';
 
-function Sidebar({ handleProjectsClick, handleSelectProject, openProjects }) {
+function Sidebar({
+  handleProjectMenuClick,
+  handleSelectProject,
+  openProjects,
+}) {
   const classes = useStyles();
 
   return (
@@ -63,7 +67,7 @@ function Sidebar({ handleProjectsClick, handleSelectProject, openProjects }) {
             }
             className={classes.list}
           >
-            <ListItem button onClick={handleProjectsClick}>
+            <ListItem button onClick={handleProjectMenuClick}>
               <ListItemIcon className={classes.icon}>
                 <ListIcon />
               </ListItemIcon>
@@ -97,7 +101,7 @@ function Sidebar({ handleProjectsClick, handleSelectProject, openProjects }) {
 }
 
 Sidebar.propTypes = {
-  handleProjectsClick: PropTypes.func.isRequired,
+  handleProjectMenuClick: PropTypes.func.isRequired,
   handleSelectProject: PropTypes.func.isRequired,
   openProjects: PropTypes.bool.isRequired,
 };

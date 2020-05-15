@@ -42,4 +42,6 @@ export const PROJECTS = [
 
 export const PROJECTS_LABEL = 'Projects';
 
+export const SEARCH_CLEAR_TOOLTIP = 'Clear';
+
 export const SEARCH_PLACEHOLDER = 'Search . . .';

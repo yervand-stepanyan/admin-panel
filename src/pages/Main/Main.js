@@ -22,7 +22,7 @@ function Main() {
     initialState
   );
 
-  const handleProjectsClick = () => {
+  const handleProjectMenuClick = () => {
     setOpenProjects(!openProjects);
   };
 
@@ -65,8 +65,8 @@ function Main() {
     setFilteredProjects(foundProjects);
   };
 
-  const handleFilteredClick = (projectName) => {
-    handleSelectProject(projectName);
+  const handleFilteredClick = async (projectName) => {
+    await handleSelectProject(projectName);
   };
 
   return (
@@ -83,7 +83,7 @@ function Main() {
       >
         <Router>
           <Sidebar
-            handleProjectsClick={handleProjectsClick}
+            handleProjectMenuClick={handleProjectMenuClick}
             handleSelectProject={handleSelectProject}
             openProjects={openProjects}
           />
