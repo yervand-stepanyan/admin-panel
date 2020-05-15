@@ -77,9 +77,10 @@ export const useStyles = makeStyles((theme) => ({
   clearIconShow: {
     display: 'flex',
     alignItems: 'center',
+    visibility: 'visible',
   },
   clearIconHidden: {
-    display: 'none',
+    visibility: 'hidden',
   },
   clearIcon: {
     cursor: 'pointer',
