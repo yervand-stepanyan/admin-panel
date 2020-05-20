@@ -1,6 +1,8 @@
 import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import { addCollections, clearCollections } from '../../store/actions';
 import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
@@ -15,7 +17,9 @@ function Main() {
   const classes = useStyles();
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [loadingCollections, setLoadingCollections] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
+  const [selectedCollection, setSelectedCollection] = useState([]);
   const [selectedProject, setSelectedProject] = useState('');
   const [stateCollections, dispatchCollections] = useReducer(
     collectionsReducer,
@@ -24,6 +28,10 @@ function Main() {
 
   const handleProjectMenuClick = () => {
     setOpenProjects(!openProjects);
+  };
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   const handleSelectProject = async (projectName) => {
@@ -69,25 +77,38 @@ function Main() {
     await handleSelectProject(projectName);
   };
 
+  const handleCollectionClick = (name) => {
+    const { collection } = stateCollections.find(
+      (collectionObject) => collectionObject.name === name
+    );
+
+    setSelectedCollection(collection);
+  };
+
   return (
     <div className={classes.mainContainer}>
+      <CssBaseline />
       <StoreContext.Provider
         value={{
           stateCollections,
           dispatchCollections,
           filteredProjects,
+          handleCollectionClick,
           handleFilteredClick,
+          handleProjectMenuClick,
           handleSearch,
+          handleSelectProject,
           loadingCollections,
+          openProjects,
+          selectedCollection,
         }}
       >
         <Router>
+          <Header handleDrawerToggle={handleDrawerToggle} />
           <Sidebar
-            handleProjectMenuClick={handleProjectMenuClick}
-            handleSelectProject={handleSelectProject}
-            openProjects={openProjects}
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen}
           />
-          <Header />
           <Content />
         </Router>
       </StoreContext.Provider>

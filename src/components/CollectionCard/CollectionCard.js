@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import Typography from '@material-ui/core/Typography';
 
 import numberWithCommas from '../../helpers/numberWithCommas';
+import { useStore } from '../../store/use-store';
 import { useStyles } from './CollectionCard.style';
 
 library.add(faTable);
@@ -16,10 +17,14 @@ library.add(faTable);
 function CollectionCard({ collectionLength, collectionName, color }) {
   const classes = useStyles();
   const numberOfRecords = numberWithCommas(collectionLength);
+  const { handleCollectionClick } = useStore();
 
   return (
     <div className={classes.collectionCardContainer}>
-      <Card className={`${classes.card} ${classes[color]}`}>
+      <Card
+        className={`${classes.card} ${classes[color]}`}
+        onClick={() => handleCollectionClick(collectionName)}
+      >
         <CardContent className={classes.cardContent}>
           <div>
             <FontAwesomeIcon icon={['fas', 'table']} size="4x" opacity={0.4} />

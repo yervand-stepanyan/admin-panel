@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   collectionListContainer: {
     display: 'flex',
-    'overflow-y': 'auto',
+    'overflow-x': 'auto',
     paddingBottom: theme.customSpacing.base,
     '&::-webkit-scrollbar': {
       height: '8px',

@@ -1,10 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
-  dashboardContainer: {
+  tableSectionContainer: {
     display: 'flex',
-    // alignItems: 'center',
-    // flexDirection: 'column',
     justifyContent: 'center',
   },
 });
