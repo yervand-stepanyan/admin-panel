@@ -3,8 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   collectionListContainer: {
     display: 'flex',
+    flexDirection: 'column',
     'overflow-x': 'auto',
-    paddingBottom: theme.customSpacing.base,
+  },
+  collectionsWrapper: {
+    display: 'flex',
+    'overflow-x': 'auto',
     '&::-webkit-scrollbar': {
       height: '8px',
     },
@@ -19,5 +23,9 @@ export const useStyles = makeStyles((theme) => ({
         background: theme.color.scrollbarHoverColor,
       },
     },
+  },
+  cardsWrapper: {
+    display: 'flex',
+    paddingBottom: theme.customSpacing.base,
   },
 }));
