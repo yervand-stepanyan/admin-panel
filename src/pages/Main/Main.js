@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -34,8 +34,18 @@ function Main() {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLogoClick = () => {
+    if (mobileOpen) {
+      setMobileOpen(false);
+    }
+  };
+
   const handleSelectProject = async (projectName) => {
     setSelectedProject(projectName);
+
+    if (mobileOpen) {
+      setMobileOpen(false);
+    }
 
     if (selectedProject !== projectName) {
       dispatchCollections(clearCollections());
@@ -95,6 +105,7 @@ function Main() {
           filteredProjects,
           handleCollectionClick,
           handleFilteredClick,
+          handleLogoClick,
           handleProjectMenuClick,
           handleSearch,
           handleSelectProject,
@@ -109,7 +120,7 @@ function Main() {
             handleDrawerToggle={handleDrawerToggle}
             mobileOpen={mobileOpen}
           />
-          <Content />
+          <Content selectedProject={selectedProject} />
         </Router>
       </StoreContext.Provider>
     </div>

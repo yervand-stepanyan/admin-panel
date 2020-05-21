@@ -5,4 +5,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
+  cardContent: {
+    textAlign: 'center',
+  },
 });

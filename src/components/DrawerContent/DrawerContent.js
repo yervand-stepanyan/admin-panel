@@ -19,6 +19,7 @@ import { useStyles } from './DrawerContent.style';
 function DrawerContent() {
   const classes = useStyles();
   const {
+    handleLogoClick,
     handleProjectMenuClick,
     handleSelectProject,
     openProjects,
@@ -28,7 +29,7 @@ function DrawerContent() {
     <div>
       <div className={classes.logoAndIconWrapper}>
         <div className={classes.logoWrapper}>
-          <Link to={ROUTES.home}>
+          <Link onClick={handleLogoClick} to={ROUTES.home}>
             <img
               alt={IMAGE.logo.alt}
               className={classes.logo}
@@ -62,7 +63,11 @@ function DrawerContent() {
           <Collapse in={openProjects} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {PROJECTS.map(({ name }) => (
-                <Link className={classes.link} key={name} to={ROUTES.dashboard}>
+                <Link
+                  className={classes.link}
+                  key={name}
+                  to={`${ROUTES.dashboard}/${name}`}
+                >
                   <ListItem
                     button
                     className={classes.nested}

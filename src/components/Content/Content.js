@@ -1,12 +1,13 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Dashboard from '../../pages/Dashboard';
 import Home from '../../pages/Home';
 import ROUTES from '../../routes';
 import { useStyles } from './Content.style';
 
-function Content() {
+function Content({ selectedProject }) {
   const classes = useStyles();
 
   return (
@@ -15,7 +16,7 @@ function Content() {
         <Route exact path={ROUTES.home}>
           <Home />
         </Route>
-        <Route path={ROUTES.dashboard}>
+        <Route path={`${ROUTES.dashboard}/${selectedProject}`}>
           <Dashboard />
         </Route>
         <Route path="*">
@@ -25,5 +26,9 @@ function Content() {
     </div>
   );
 }
+
+Content.propTypes = {
+  selectedProject: PropTypes.string.isRequired,
+};
 
 export default Content;

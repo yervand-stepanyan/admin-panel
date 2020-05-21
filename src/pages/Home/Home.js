@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className={classes.homeContainer}>
       <Card>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <Typography variant="h4">{HOME_LABEL}</Typography>
         </CardContent>
       </Card>
