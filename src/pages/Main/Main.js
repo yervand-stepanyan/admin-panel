@@ -112,6 +112,7 @@ function Main() {
           loadingCollections,
           openProjects,
           selectedCollection,
+          selectedProject,
         }}
       >
         <Router>
@@ -120,7 +121,7 @@ function Main() {
             handleDrawerToggle={handleDrawerToggle}
             mobileOpen={mobileOpen}
           />
-          <Content selectedProject={selectedProject} />
+          <Content />
         </Router>
       </StoreContext.Provider>
     </div>
