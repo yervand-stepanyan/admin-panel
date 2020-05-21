@@ -103,7 +103,7 @@ function Searchbar() {
                     key={name}
                     onClick={() => handleItemClick(name)}
                     onKeyDown={(e) => handleItemEnterKey(e, name)}
-                    to={ROUTES.dashboard}
+                    to={`${ROUTES.dashboard}/${name}`}
                   >
                     <li className={classes.li}>
                       <Typography variant="subtitle1">{name}</Typography>
