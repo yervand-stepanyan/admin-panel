@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 
+const BORDER_RADIUS = 3;
 const DRAWER_WIDTH = 240;
 const MAIN_SPACING_VALUE = 14;
 
@@ -19,13 +20,15 @@ const scrollbarColor = '#a1a1a1';
 const scrollbarHoverColor = '#6d6d6d';
 const searchLiHover = '#f1f1f1';
 const sidebarColor = '#1B2133';
+const tableShadowColor = '#999999';
 const textColorBlack = '#000000';
 const whiteColor = '#FFFFFF';
 
 const theme = createMuiTheme({
-  drawer: {
-    drawerWidth: DRAWER_WIDTH,
-    drawerColor: sidebarColor,
+  border: {
+    borderRadius: {
+      base: `${BORDER_RADIUS}px`,
+    },
   },
   color: {
     backgroundColor,
@@ -44,6 +47,7 @@ const theme = createMuiTheme({
     scrollbarHoverColor,
     searchLiHover,
     sidebarColor,
+    tableShadowColor,
     textColorBlack,
     whiteColor,
   },
@@ -51,6 +55,10 @@ const theme = createMuiTheme({
     small: `${MAIN_SPACING_VALUE / 2}px`,
     base: `${MAIN_SPACING_VALUE}px`,
     xxxLarge: `${MAIN_SPACING_VALUE * 7}px`,
+  },
+  drawer: {
+    drawerWidth: DRAWER_WIDTH,
+    drawerColor: sidebarColor,
   },
 });
 

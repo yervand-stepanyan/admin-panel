@@ -5,5 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginTop: theme.customSpacing.base,
+    padding: `0 ${theme.customSpacing.small} ${theme.customSpacing.small} ${theme.customSpacing.small}`,
   },
 }));

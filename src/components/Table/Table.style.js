@@ -5,6 +5,8 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: theme.color.whiteColor,
+    borderRadius: theme.border.borderRadius.base,
+    boxShadow: `0 8px 6px -6px ${theme.color.tableShadowColor}`,
     width: '100%',
   },
 }));
