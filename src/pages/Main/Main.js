@@ -41,6 +41,8 @@ function Main() {
   };
 
   const handleSelectProject = async (projectName) => {
+    setSelectedCollection([]);
+
     setSelectedProject(projectName);
 
     if (mobileOpen) {
