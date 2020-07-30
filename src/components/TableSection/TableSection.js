@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { useStore } from '../../store/use-store';
+import Table from '../Table';
 import { useStyles } from './TableSection.style';
 
 function TableSection() {
   const classes = useStyles();
-  const { selectedCollection } = useStore();
 
   return (
     <div className={classes.tableSectionContainer}>
-      <div>{selectedCollection.length}</div>
+      <Table />
     </div>
   );
 }
