@@ -16,10 +16,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   collectionNameContainer: {},
   tableWrapper: {
+    maxHeight: '75vh',
+    overflow: 'auto',
     width: '100%',
   },
-  columnContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
+  table: {
+    width: '100%',
   },
 }));

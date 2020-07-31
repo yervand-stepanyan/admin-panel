@@ -5,6 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     'overflow-x': 'auto',
+    width: '100%',
   },
   collectionsWrapper: {
     display: 'flex',

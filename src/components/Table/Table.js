@@ -10,6 +10,10 @@ function Table() {
   const { selectedCollection, selectedCollectionName } = useStore();
   const keys = Object.keys(selectedCollection[0]);
   const columnNames = ['№', ...keys];
+  const rowData = selectedCollection.map((item, index) => [
+    index + 1,
+    ...Object.values(item),
+  ]);
 
   return (
     <div className={classes.tableContainer}>
@@ -21,15 +25,30 @@ function Table() {
         </div>
       </div>
       <div className={classes.tableWrapper}>
-        <div className={classes.columnContainer}>
-          {columnNames.map((name) => (
-            <div key={name}>
-              <Typography variant="h6" gutterBottom>
-                {name}
-              </Typography>
-            </div>
-          ))}
-        </div>
+        <table className={classes.table}>
+          <thead>
+            <tr>
+              {columnNames.map((name) => (
+                <th key={name}>
+                  <Typography variant="h6" gutterBottom>
+                    {name}
+                  </Typography>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rowData.map((row) => (
+              <tr key={row[0]}>
+                {row.map((data, index) => (
+                  <td key={`${data + index}`}>
+                    {typeof data !== 'object' ? data : typeof data}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
