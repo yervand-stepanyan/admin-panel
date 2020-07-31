@@ -20,6 +20,7 @@ function Main() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState([]);
+  const [selectedCollectionName, setSelectedCollectionName] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
   const [stateCollections, dispatchCollections] = useReducer(
     collectionsReducer,
@@ -95,6 +96,8 @@ function Main() {
     );
 
     setSelectedCollection(collection);
+
+    setSelectedCollectionName(name);
   };
 
   return (
@@ -114,6 +117,7 @@ function Main() {
           loadingCollections,
           openProjects,
           selectedCollection,
+          selectedCollectionName,
           selectedProject,
         }}
       >
