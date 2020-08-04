@@ -23,4 +23,12 @@ export const useStyles = makeStyles((theme) => ({
   table: {
     width: '100%',
   },
+  th: {
+    '&$th': {
+      background: theme.color.whiteColor,
+      position: 'sticky',
+      top: 0,
+      'z-index': 2,
+    },
+  },
 }));

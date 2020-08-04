@@ -29,7 +29,7 @@ function Table() {
           <thead>
             <tr>
               {columnNames.map((name) => (
-                <th key={name}>
+                <th className={classes.th} key={name}>
                   <Typography variant="h6" gutterBottom>
                     {name}
                   </Typography>
