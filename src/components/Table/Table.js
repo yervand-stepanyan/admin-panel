@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
 import { useStore } from '../../store/use-store';
@@ -19,9 +20,7 @@ function Table() {
     <div className={classes.tableContainer}>
       <div className={classes.tableHeaderContainer}>
         <div className={classes.collectionNameContainer}>
-          <Typography variant="h5" gutterBottom>
-            {selectedCollectionName}
-          </Typography>
+          <Typography variant="h5">{selectedCollectionName}</Typography>
         </div>
       </div>
       <div className={classes.tableWrapper}>
@@ -30,19 +29,21 @@ function Table() {
             <tr>
               {columnNames.map((name) => (
                 <th className={classes.th} key={name}>
-                  <Typography variant="h6" gutterBottom>
-                    {name}
-                  </Typography>
+                  <Typography variant="h6">{name}</Typography>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
             {rowData.map((row) => (
-              <tr key={row[0]}>
+              <tr className={classes.tr} key={row[0]}>
                 {row.map((data, index) => (
-                  <td key={`${data + index}`}>
-                    {typeof data !== 'object' ? data : typeof data}
+                  <td className={classes.td} key={`${data + index}`}>
+                    <Tooltip title={data}>
+                      <Typography variant="body1">
+                        {typeof data !== 'object' ? data : typeof data}
+                      </Typography>
+                    </Tooltip>
                   </td>
                 ))}
               </tr>

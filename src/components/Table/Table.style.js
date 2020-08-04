@@ -22,13 +22,28 @@ export const useStyles = makeStyles((theme) => ({
   },
   table: {
     width: '100%',
+    '&$table, th, td': {
+      border: '1px solid #dddddd',
+      borderCollapse: 'collapse',
+    },
   },
   th: {
     '&$th': {
       background: theme.color.whiteColor,
+      padding: `0 ${theme.customSpacing.small}`,
       position: 'sticky',
       top: 0,
       'z-index': 2,
+    },
+  },
+  tr: {
+    '&$tr:nth-child(even)': {
+      backgroundColor: '#dddddd',
+    },
+  },
+  td: {
+    '&$td': {
+      padding: `0 ${theme.customSpacing.small}`,
     },
   },
 }));
