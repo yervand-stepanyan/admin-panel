@@ -11,15 +11,15 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     'overflow-x': 'auto',
     '&::-webkit-scrollbar': {
-      height: '8px',
+      height: theme.scrollbar.scrollbarHeight,
     },
     '&::-webkit-scrollbar-track': {
-      '-webkit-box-shadow': 'inset 0 0 5px grey',
-      borderRadius: '10px',
+      '-webkit-box-shadow': `inset 0 0 5px ${theme.color.scrollbarTrackColor}`,
+      borderRadius: theme.scrollbar.scrollbarTrackBorderRadius,
     },
     '&::-webkit-scrollbar-thumb': {
       background: theme.color.scrollbarColor,
-      borderRadius: '10px',
+      borderRadius: theme.scrollbar.scrollbarThumbBorderRadius,
       '&:hover': {
         background: theme.color.scrollbarHoverColor,
       },
