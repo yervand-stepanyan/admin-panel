@@ -3,6 +3,10 @@ import { createMuiTheme } from '@material-ui/core';
 const BORDER_RADIUS = 3;
 const DRAWER_WIDTH = 240;
 const MAIN_SPACING_VALUE = 14;
+const SCROLLBAR_HEIGHT = 8;
+const SCROLLBAR_WIDTH = 8;
+const SCROLLBAR_THUMB_BORDER_RADIUS = 10;
+const SCROLLBAR_TRACK_BORDER_RADIUS = 10;
 
 const backgroundColor = '#E4EAF6';
 const cardColorBlue = '#4285F4';
@@ -18,6 +22,7 @@ const listSubHeaderColor = '#7f7f7f';
 const headerButtonColor = '#7a7a7a';
 const scrollbarColor = '#a1a1a1';
 const scrollbarHoverColor = '#6d6d6d';
+const scrollbarTrackColor = '#808080';
 const searchLiHover = '#f1f1f1';
 const sidebarColor = '#1B2133';
 const tableShadowColor = '#999999';
@@ -45,6 +50,7 @@ const theme = createMuiTheme({
     headerButtonColor,
     scrollbarColor,
     scrollbarHoverColor,
+    scrollbarTrackColor,
     searchLiHover,
     sidebarColor,
     tableShadowColor,
@@ -59,6 +65,12 @@ const theme = createMuiTheme({
   drawer: {
     drawerWidth: DRAWER_WIDTH,
     drawerColor: sidebarColor,
+  },
+  scrollbar: {
+    scrollbarHeight: `${SCROLLBAR_HEIGHT}px`,
+    scrollbarWidth: `${SCROLLBAR_WIDTH}px`,
+    scrollbarThumbBorderRadius: `${SCROLLBAR_THUMB_BORDER_RADIUS}px`,
+    scrollbarTrackBorderRadius: `${SCROLLBAR_TRACK_BORDER_RADIUS}px`,
   },
 });
 
