@@ -39,11 +39,15 @@ function Table() {
               <tr className={classes.tr} key={row[0]}>
                 {row.map((data, index) => (
                   <td className={classes.td} key={`${data + index}`}>
-                    <Tooltip title={data}>
-                      <Typography variant="body1">
-                        {typeof data !== 'object' ? data : typeof data}
-                      </Typography>
-                    </Tooltip>
+                    {typeof data !== 'object' ? (
+                      <Tooltip title={data}>
+                        <Typography variant="body1">{data}</Typography>
+                      </Tooltip>
+                    ) : (
+                      <Tooltip title={columnNames[index]}>
+                        <Typography variant="body1">{`${columnNames[index]}(${columnNames.length})`}</Typography>
+                      </Tooltip>
+                    )}
                   </td>
                 ))}
               </tr>
