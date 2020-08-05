@@ -8,7 +8,11 @@ import { useStyles } from './Table.style';
 
 function Table() {
   const classes = useStyles();
-  const { selectedCollection, selectedCollectionName } = useStore();
+  const {
+    selectedCollection,
+    selectedCollectionColor,
+    selectedCollectionName,
+  } = useStore();
   const keys = Object.keys(selectedCollection[0]);
   const columnNames = ['№', ...keys];
   const rowData = selectedCollection.map((item, index) => [
@@ -28,7 +32,10 @@ function Table() {
           <thead>
             <tr>
               {columnNames.map((name) => (
-                <th className={classes.th} key={name}>
+                <th
+                  className={`${classes.th} ${classes[selectedCollectionColor]}`}
+                  key={name}
+                >
                   <Typography variant="h6">{name}</Typography>
                 </th>
               ))}
@@ -45,7 +52,9 @@ function Table() {
                       </Tooltip>
                     ) : (
                       <Tooltip title={columnNames[index]}>
-                        <Typography variant="body1">{`${columnNames[index]}(${columnNames.length})`}</Typography>
+                        <Typography variant="body1">
+                          {`${columnNames[index]}(${columnNames.length})`}
+                        </Typography>
                       </Tooltip>
                     )}
                   </td>

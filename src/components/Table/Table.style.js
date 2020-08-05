@@ -44,7 +44,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   th: {
     '&$th': {
-      background: theme.color.whiteColor,
       padding: `0 ${theme.customSpacing.small}`,
       position: 'sticky',
       top: 0,
@@ -60,5 +59,21 @@ export const useStyles = makeStyles((theme) => ({
     '&$td': {
       padding: `0 ${theme.customSpacing.small}`,
     },
+  },
+  blue: {
+    backgroundColor: theme.color.cardColorBlue,
+    color: theme.color.whiteColor,
+  },
+  green: {
+    backgroundColor: theme.color.cardColorGreen,
+    color: theme.color.whiteColor,
+  },
+  red: {
+    backgroundColor: theme.color.cardColorRed,
+    color: theme.color.whiteColor,
+  },
+  yellow: {
+    backgroundColor: theme.color.cardColorYellow,
+    color: theme.color.whiteColor,
   },
 }));

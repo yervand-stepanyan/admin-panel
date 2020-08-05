@@ -23,7 +23,7 @@ function CollectionCard({ collectionLength, collectionName, color }) {
     <div className={classes.collectionCardContainer}>
       <Card
         className={`${classes.card} ${classes[color]}`}
-        onClick={() => handleCollectionClick(collectionName)}
+        onClick={() => handleCollectionClick(color, collectionName)}
       >
         <CardContent className={classes.cardContent}>
           <div>

@@ -20,6 +20,7 @@ function Main() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openProjects, setOpenProjects] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState([]);
+  const [selectedCollectionColor, setSelectedCollectionColor] = useState('');
   const [selectedCollectionName, setSelectedCollectionName] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
   const [stateCollections, dispatchCollections] = useReducer(
@@ -90,7 +91,7 @@ function Main() {
     await handleSelectProject(projectName);
   };
 
-  const handleCollectionClick = (name) => {
+  const handleCollectionClick = (color, name) => {
     const { collection } = stateCollections.find(
       (collectionObject) => collectionObject.name === name
     );
@@ -98,6 +99,8 @@ function Main() {
     setSelectedCollection(collection);
 
     setSelectedCollectionName(name);
+
+    setSelectedCollectionColor(color);
   };
 
   return (
@@ -117,6 +120,7 @@ function Main() {
           loadingCollections,
           openProjects,
           selectedCollection,
+          selectedCollectionColor,
           selectedCollectionName,
           selectedProject,
         }}
