@@ -19,6 +19,21 @@ export const useStyles = makeStyles((theme) => ({
     maxHeight: '75vh',
     overflow: 'auto',
     width: '100%',
+    '&::-webkit-scrollbar': {
+      height: theme.scrollbar.scrollbarHeight,
+      width: theme.scrollbar.scrollbarWidth,
+    },
+    '&::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': `inset 0 0 5px ${theme.color.scrollbarTrackColor}`,
+      borderRadius: theme.scrollbar.scrollbarTrackBorderRadius,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: theme.color.scrollbarColor,
+      borderRadius: theme.scrollbar.scrollbarThumbBorderRadius,
+      '&:hover': {
+        background: theme.color.scrollbarHoverColor,
+      },
+    },
   },
   table: {
     width: '100%',
