@@ -9,22 +9,20 @@ import { useStyles } from './Table.style';
 function Table() {
   const classes = useStyles();
   const {
+    columnNames,
     selectedCollection,
     selectedCollectionColor,
     selectedCollectionName,
+    tableData,
   } = useStore();
-  const keys = Object.keys(selectedCollection[0]);
-  const columnNames = ['№', ...keys];
-  const rowData = selectedCollection.map((item, index) => [
-    index + 1,
-    ...Object.values(item),
-  ]);
 
   return (
     <div className={classes.tableContainer}>
       <div className={classes.tableHeaderContainer}>
         <div className={classes.collectionNameContainer}>
-          <Typography variant="h5">{selectedCollectionName}</Typography>
+          <Typography variant="h5">
+            {`${selectedCollectionName}(${selectedCollection.length})`}
+          </Typography>
         </div>
       </div>
       <div className={classes.tableWrapper}>
@@ -42,7 +40,7 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {rowData.map((row) => (
+            {tableData.map((row) => (
               <tr className={classes.tr} key={row[0]}>
                 {row.map((data, index) => (
                   <td className={classes.td} key={`${data + index}`}>
