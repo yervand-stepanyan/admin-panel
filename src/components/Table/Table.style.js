@@ -44,9 +44,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   th: {
     '&$th': {
+      boxShadow: '0 2px 2px -1px rgba(0, 0, 0, 0.4)',
       padding: `0 ${theme.customSpacing.small}`,
       position: 'sticky',
-      top: 0,
+      top: -1,
       'z-index': 2,
     },
   },
