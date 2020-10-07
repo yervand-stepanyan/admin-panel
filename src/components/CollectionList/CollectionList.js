@@ -18,11 +18,7 @@ function CollectionList() {
             <CollectionCard
               collectionLength={collection.length}
               collectionName={name}
-              color={
-                CARD_COLORS[index]
-                  ? CARD_COLORS[index]
-                  : CARD_COLORS[index - CARD_COLORS.length]
-              }
+              color={CARD_COLORS[index] ? CARD_COLORS[index] : CARD_COLORS[index - CARD_COLORS.length]}
               key={name}
             />
           ))}
