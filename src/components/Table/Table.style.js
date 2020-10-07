@@ -56,10 +56,11 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: '#dddddd',
     },
   },
-  td: {
-    '&$td': {
-      padding: `0 ${theme.customSpacing.small}`,
-    },
+  dataCell: {
+    padding: `0 ${theme.customSpacing.small}`,
+  },
+  clickableDataCell: {
+    cursor: 'pointer',
   },
   blue: {
     backgroundColor: theme.color.cardColorBlue,

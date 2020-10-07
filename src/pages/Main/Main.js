@@ -27,13 +27,6 @@ function Main() {
     collectionsReducer,
     initialState
   );
-  const columnNames = selectedCollection.length
-    ? ['№', ...Object.keys(selectedCollection[0])]
-    : [];
-  const tableData = selectedCollection.map((item, index) => [
-    index + 1,
-    ...Object.values(item),
-  ]);
 
   const handleProjectMenuClick = () => {
     setOpenProjects(!openProjects);
@@ -117,7 +110,6 @@ function Main() {
         value={{
           stateCollections,
           dispatchCollections,
-          columnNames,
           filteredProjects,
           handleCollectionClick,
           handleFilteredClick,
@@ -131,7 +123,6 @@ function Main() {
           selectedCollectionColor,
           selectedCollectionName,
           selectedProject,
-          tableData,
         }}
       >
         <Router>

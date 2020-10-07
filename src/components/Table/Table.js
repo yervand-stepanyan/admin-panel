@@ -3,18 +3,24 @@ import React from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
+import { NUMBER_SIGN } from '../../globals/constants';
 import { useStore } from '../../store/use-store';
 import { useStyles } from './Table.style';
 
 function Table() {
   const classes = useStyles();
   const {
-    columnNames,
     selectedCollection,
     selectedCollectionColor,
     selectedCollectionName,
-    tableData,
   } = useStore();
+  const columnNames = selectedCollection.length
+    ? [NUMBER_SIGN, ...Object.keys(selectedCollection[0])]
+    : [];
+  const tableData = selectedCollection.map((item, index) => [
+    index + 1,
+    ...Object.values(item),
+  ]);
 
   return (
     <div className={classes.tableContainer}>
@@ -40,25 +46,41 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row) => (
-              <tr className={classes.tr} key={row[0]}>
-                {row.map((data, index) => (
-                  <td className={classes.td} key={`${data + index}`}>
-                    {typeof data !== 'object' ? (
-                      <Tooltip title={data}>
-                        <Typography variant="body1">{data}</Typography>
-                      </Tooltip>
-                    ) : (
-                      <Tooltip title={columnNames[index]}>
-                        <Typography variant="body1">
-                          {`${columnNames[index]}(${columnNames.length})`}
-                        </Typography>
-                      </Tooltip>
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            {tableData.map((row) => {
+              return (
+                <tr className={classes.tr} key={row[0]}>
+                  {row.map((data, index) => {
+                    if (typeof data !== 'object') {
+                      return (
+                        <td key={`${data + index}`}>
+                          <Tooltip title={data}>
+                            <div className={classes.dataCell}>
+                              <Typography variant="body1">{data}</Typography>
+                            </div>
+                          </Tooltip>
+                        </td>
+                      );
+                    }
+
+                    return (
+                      <td key={`${data + index}`}>
+                        <Tooltip title={columnNames[index]}>
+                          <div
+                            className={`${classes.dataCell} ${classes.clickableDataCell}`}
+                          >
+                            <Typography variant="body1">
+                              {Array.isArray(data)
+                                ? `${columnNames[index]}(${data.length})`
+                                : `${columnNames[index]}(${typeof data})`}
+                            </Typography>
+                          </div>
+                        </Tooltip>
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
