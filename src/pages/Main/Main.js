@@ -7,6 +7,7 @@ import { addCollections, clearCollections } from '../../store/actions';
 import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
 import Content from '../../components/Content';
+import firstLetterUpperCase from '../../helpers/firstLetterUpperCase';
 import Header from '../../components/Header';
 import { NUMBER_SIGN, PROJECTS } from '../../globals/constants';
 import Sidebar from '../../components/Sidebar';
@@ -28,7 +29,12 @@ function Main() {
     initialState
   );
   const columnNames = selectedCollection.length
-    ? [NUMBER_SIGN, ...Object.keys(selectedCollection[0])]
+    ? [
+        NUMBER_SIGN,
+        ...Object.keys(selectedCollection[0]).map(column =>
+          firstLetterUpperCase(column)
+        ),
+      ]
     : [];
   const tableData = selectedCollection.map((item, index) => [
     index + 1,
