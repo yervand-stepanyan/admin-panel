@@ -1,20 +1,19 @@
 import logo from '../assets/images/logo.png';
 
 export const CARD_COLORS = ['blue', 'red', 'yellow', 'green'];
-
+export const COLUMN_NAME = {
+  createdAt: 'Created Date',
+  updatedAt: 'Updated Date',
+};
 export const HOME_LABEL = 'Choose a project to display!';
-
 export const IMAGE = {
   logo: {
     alt: 'logo',
     src: logo,
   },
 };
-
 export const NO_ITEM_FOUND = 'No item found';
-
 export const NUMBER_SIGN = '№';
-
 export const PROJECTS = [
   {
     name: 'Create Survey',
@@ -41,9 +40,6 @@ export const PROJECTS = [
     routeAPI: process.env.REACT_APP_LEARNING_ENGLISH_API,
   },
 ];
-
 export const PROJECTS_LABEL = 'Projects';
-
 export const SEARCH_CLEAR_TOOLTIP = 'Clear';
-
 export const SEARCH_PLACEHOLDER = 'Search . . .';

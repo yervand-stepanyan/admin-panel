@@ -6,10 +6,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { addCollections, clearCollections } from '../../store/actions';
 import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
+import { COLUMN_NAME, NUMBER_SIGN, PROJECTS } from '../../globals/constants';
 import Content from '../../components/Content';
 import firstLetterUpperCase from '../../helpers/firstLetterUpperCase';
 import Header from '../../components/Header';
-import { NUMBER_SIGN, PROJECTS } from '../../globals/constants';
 import Sidebar from '../../components/Sidebar';
 import StoreContext from '../../store/context';
 import { useStyles } from './Main.style';
@@ -32,7 +32,9 @@ function Main() {
     ? [
         NUMBER_SIGN,
         ...Object.keys(selectedCollection[0]).map(column =>
-          firstLetterUpperCase(column)
+          column in COLUMN_NAME
+            ? COLUMN_NAME[column]
+            : firstLetterUpperCase(column)
         ),
       ]
     : [];
