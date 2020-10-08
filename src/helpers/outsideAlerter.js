@@ -9,6 +9,7 @@ function useOutsideAlerter(ref, setItem) {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
