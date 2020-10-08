@@ -8,7 +8,7 @@ import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
 import Content from '../../components/Content';
 import Header from '../../components/Header';
-import { PROJECTS } from '../../globals/constants';
+import { NUMBER_SIGN, PROJECTS } from '../../globals/constants';
 import Sidebar from '../../components/Sidebar';
 import StoreContext from '../../store/context';
 import { useStyles } from './Main.style';
@@ -27,6 +27,13 @@ function Main() {
     collectionsReducer,
     initialState
   );
+  const columnNames = selectedCollection.length
+    ? [NUMBER_SIGN, ...Object.keys(selectedCollection[0])]
+    : [];
+  const tableData = selectedCollection.map((item, index) => [
+    index + 1,
+    ...Object.values(item),
+  ]);
 
   const handleProjectMenuClick = () => {
     setOpenProjects(!openProjects);
@@ -110,6 +117,7 @@ function Main() {
         value={{
           stateCollections,
           dispatchCollections,
+          columnNames,
           filteredProjects,
           handleCollectionClick,
           handleFilteredClick,
@@ -123,6 +131,7 @@ function Main() {
           selectedCollectionColor,
           selectedCollectionName,
           selectedProject,
+          tableData,
         }}
       >
         <Router>

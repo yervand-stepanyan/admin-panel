@@ -3,24 +3,18 @@ import React from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
-import { NUMBER_SIGN } from '../../globals/constants';
 import { useStore } from '../../store/use-store';
 import { useStyles } from './Table.style';
 
 function Table() {
   const classes = useStyles();
   const {
+    columnNames,
     selectedCollection,
     selectedCollectionColor,
     selectedCollectionName,
+    tableData,
   } = useStore();
-  const columnNames = selectedCollection.length
-    ? [NUMBER_SIGN, ...Object.keys(selectedCollection[0])]
-    : [];
-  const tableData = selectedCollection.map((item, index) => [
-    index + 1,
-    ...Object.values(item),
-  ]);
 
   return (
     <div className={classes.tableContainer}>
