@@ -29,7 +29,7 @@ function Table() {
         <table className={classes.table}>
           <thead>
             <tr>
-              {columnNames.map((name) => (
+              {columnNames.map(name => (
                 <th
                   className={`${classes.th} ${classes[selectedCollectionColor]}`}
                   key={name}
@@ -40,7 +40,7 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row) => {
+            {tableData.map(row => {
               return (
                 <tr className={classes.tr} key={row[0]}>
                   {row.map((data, index) => {

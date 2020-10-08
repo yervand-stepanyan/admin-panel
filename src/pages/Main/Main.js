@@ -49,7 +49,7 @@ function Main() {
     }
   };
 
-  const handleSelectProject = async (projectName) => {
+  const handleSelectProject = async projectName => {
     setSelectedCollection([]);
 
     setSelectedProject(projectName);
@@ -68,7 +68,7 @@ function Main() {
       setLoadingCollections(true);
 
       const { collections, routeAPI } = PROJECTS.find(
-        (project) => project.name === projectName
+        project => project.name === projectName
       );
       const responseArray = await Promise.all(
         collections.map(({ url }) => API.get(routeAPI, url))
@@ -86,7 +86,7 @@ function Main() {
     }
   };
 
-  const handleSearch = (searchItem) => {
+  const handleSearch = searchItem => {
     const foundProjects = PROJECTS.filter(({ name }) =>
       name.toLowerCase().includes(searchItem.toLowerCase())
     );
@@ -94,13 +94,13 @@ function Main() {
     setFilteredProjects(foundProjects);
   };
 
-  const handleFilteredClick = async (projectName) => {
+  const handleFilteredClick = async projectName => {
     await handleSelectProject(projectName);
   };
 
   const handleCollectionClick = (color, name) => {
     const { collection } = stateCollections.find(
-      (collectionObject) => collectionObject.name === name
+      collectionObject => collectionObject.name === name
     );
 
     setSelectedCollection(collection);

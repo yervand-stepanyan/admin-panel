@@ -28,7 +28,7 @@ function Searchbar() {
   const inputRef = useRef(null);
   useOutsideAlerter(resultRef, setShowFiltered);
 
-  const handleSearchItem = (searchValue) => {
+  const handleSearchItem = searchValue => {
     const filteredValue = removeSpaces(searchValue);
 
     if (filteredValue) {
@@ -40,19 +40,19 @@ function Searchbar() {
     }
   };
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = event => {
     setValue(event.target.value);
 
     handleSearchItem(event.target.value);
   };
 
-  const handleSearchEnterKey = (event) => {
+  const handleSearchEnterKey = event => {
     if (event.key === 'Enter') {
       handleSearchItem(value);
     }
   };
 
-  const handleSelectItem = (name) => {
+  const handleSelectItem = name => {
     handleFilteredClick(name);
 
     setShowFiltered(false);
@@ -60,7 +60,7 @@ function Searchbar() {
     setValue('');
   };
 
-  const handleItemClick = (name) => {
+  const handleItemClick = name => {
     handleSelectItem(name);
   };
 
@@ -86,8 +86,8 @@ function Searchbar() {
           }}
           inputProps={{ 'aria-label': 'search' }}
           inputRef={inputRef}
-          onChange={(e) => handleSearchChange(e)}
-          onKeyDown={(e) => handleSearchEnterKey(e)}
+          onChange={e => handleSearchChange(e)}
+          onKeyDown={e => handleSearchEnterKey(e)}
           placeholder={SEARCH_PLACEHOLDER}
           value={value}
         />
@@ -102,7 +102,7 @@ function Searchbar() {
                     className={classes.link}
                     key={name}
                     onClick={() => handleItemClick(name)}
-                    onKeyDown={(e) => handleItemEnterKey(e, name)}
+                    onKeyDown={e => handleItemEnterKey(e, name)}
                     to={`${ROUTES.dashboard}/${name}`}
                   >
                     <li className={classes.li}>
