@@ -23,6 +23,10 @@
     "react"
   ],
   "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "react/jsx-filename-extension": [
       1,
       {
