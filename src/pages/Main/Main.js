@@ -6,8 +6,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { addCollections, clearCollections } from '../../store/actions';
 import API from '../../fetchAPI';
 import { collectionsReducer, initialState } from '../../store/reducer';
-import { COLUMN_NAME, NUMBER_SIGN, PROJECTS } from '../../globals/constants';
+import {
+  COLLECTION_TIMESTAMP_LABELS,
+  COLUMN_NAME,
+  NUMBER_SIGN,
+  PROJECTS,
+} from '../../globals/constants';
 import Content from '../../components/Content';
+import dateFormatter from '../../helpers/dateFormatter';
 import firstLetterUpperCase from '../../helpers/firstLetterUpperCase';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
@@ -40,7 +46,11 @@ function Main() {
     : [];
   const tableData = selectedCollection.map((item, index) => [
     index + 1,
-    ...Object.values(item),
+    ...Object.keys(item).map(key =>
+      COLLECTION_TIMESTAMP_LABELS.includes(key)
+        ? dateFormatter(item[key])
+        : item[key]
+    ),
   ]);
 
   const handleProjectMenuClick = () => {

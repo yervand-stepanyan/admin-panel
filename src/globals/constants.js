@@ -1,6 +1,7 @@
 import logo from '../assets/images/logo.png';
 
 export const CARD_COLORS = ['blue', 'red', 'yellow', 'green'];
+export const COLLECTION_TIMESTAMP_LABELS = ['createdAt', 'updatedAt'];
 export const COLUMN_NAME = {
   createdAt: 'Created Date',
   updatedAt: 'Updated Date',
@@ -12,6 +13,20 @@ export const IMAGE = {
     src: logo,
   },
 };
+export const MONTH_NAMES = [
+  'Jan',
+  'Feb',
+  'Mar ',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
 export const NO_ITEM_FOUND = 'No item found';
 export const NUMBER_SIGN = '№';
 export const PROJECTS = [
