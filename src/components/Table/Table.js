@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'react-uuid';
 
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
@@ -40,13 +41,13 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {tableData.map(row => {
+            {tableData.map(({ dataArray, id }) => {
               return (
-                <tr className={classes.tr} key={row[0]}>
-                  {row.map((data, index) => {
+                <tr className={classes.tr} key={id}>
+                  {dataArray.map((data, index) => {
                     if (typeof data !== 'object') {
                       return (
-                        <td key={`${data + index}`}>
+                        <td key={uuid()}>
                           <Tooltip title={data}>
                             <div className={classes.dataCell}>
                               <Typography variant="body1">{data}</Typography>
@@ -57,7 +58,7 @@ function Table() {
                     }
 
                     return (
-                      <td key={`${data + index}`}>
+                      <td key={uuid()}>
                         <Tooltip title={columnNames[index]}>
                           <div
                             className={`${classes.dataCell} ${classes.clickableDataCell}`}

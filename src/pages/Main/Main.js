@@ -37,21 +37,22 @@ function Main() {
   const columnNames = selectedCollection.length
     ? [
         NUMBER_SIGN,
-        ...Object.keys(selectedCollection[0]).map(column =>
-          column in COLUMN_NAME
-            ? COLUMN_NAME[column]
-            : firstLetterUpperCase(column)
+        ...Object.keys(selectedCollection[0]).map(key =>
+          key in COLUMN_NAME ? COLUMN_NAME[key] : firstLetterUpperCase(key)
         ),
       ]
     : [];
-  const tableData = selectedCollection.map((item, index) => [
-    index + 1,
-    ...Object.keys(item).map(key =>
-      COLLECTION_TIMESTAMP_LABELS.includes(key)
-        ? dateFormatter(item[key])
-        : item[key]
-    ),
-  ]);
+  const tableData = selectedCollection.map((item, index) => ({
+    dataArray: [
+      index + 1,
+      ...Object.keys(item).map(key =>
+        COLLECTION_TIMESTAMP_LABELS.includes(key)
+          ? dateFormatter(item[key])
+          : item[key]
+      ),
+    ],
+    id: item.id,
+  }));
 
   const handleProjectMenuClick = () => {
     setOpenProjects(!openProjects);
@@ -93,7 +94,7 @@ function Main() {
       );
       const mappedCollections = await responseArray.map((array, index) => ({
         name: collections[index].name,
-        collection: array,
+        collection: array.slice().reverse(),
       }));
 
       dispatchCollections(addCollections(mappedCollections));
